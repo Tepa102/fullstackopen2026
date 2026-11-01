@@ -1,0 +1,17 @@
+
+0.6: New note in SPA
+
+mermaid
+
+sequenceDiagram
+    participant User
+    participant Browser
+    participant Server
+
+    User->>Browser: Writes a new note
+    User->>Browser: Presses Save button
+    Note right of Browser: JavaScript prevents default form submission
+    Browser->>Server: POST /new_note_spa (new note as JSON)
+    Server-->>Browser: 201 Created
+    Note right of Browser: JavaScript updates the notes list
+    Browser-->>User: Displays the new note without reloading the page
